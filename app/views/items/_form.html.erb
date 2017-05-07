@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.label :condition %>
-    <%= f.select :condition, Item.conditions.map { |name, _ids] [name.titleize, name] } %>
+    <%= f.select :condition, Item.conditions.map { |name, _ids| [name.titleize, name] } %>
   </div>
 
   <div class="field">
@@ -38,12 +38,12 @@
 
   <div class="field">
     <%= f.label :format %>
-    <%= f.select :format, Item.formats.map { |name, _ids] [name.titleize, name] } %>
+    <%= f.select :format, Item.formats.map { |name, _ids| [name.titleize, name] } %>
   </div>
 
   <div class="field">
     <%= f.label :brand_id %>
-    <%= f.select :brand_id, Item.brand_ids.map { |name, _ids] [name.titleize, name] } %>
+    <%= f.select :brand_id, Item.brand_ids.map { |name, _ids| [name.titleize, name] } %>
   </div>
 
   <div class="field">
@@ -53,7 +53,7 @@
 
   <div class="field">
     <%= f.label :color %>
-    <%= f.select :color, Item.colors.map { |name, _ids] [name.titleize, name] } %>
+    <%= f.select :color, Item.colors.map { |name, _ids| [name.titleize, name] } %>
   </div>
 
   <div class="field">

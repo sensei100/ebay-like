@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  validates :title, :description, :price, :category_id, :brand_id, :condition, :format, :screen_size, :color, :memory, :presence: true
+  validates :title, :description, :price, :category_id, :brand_id, :condition, :format, :screen_size, :color, :memory, presence: true
 
   enum category_id: [:notebook, :ultrabook, :netbook]
   enum brand_id: [:apple, :lenovo, :dell, :hp, :asus]
