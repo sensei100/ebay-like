@@ -10,8 +10,10 @@ class Item < ApplicationRecord
   MEMORY_SIZES =  2.upto(8).each_with_object({}) { |item, hash| hash[item] = "#{item}GB" }
   SCREEN_SIZES = %w(11.6 13.3 14 15.4).each_with_object({}) { |item, hash| hash[item] = "#{item} inches" }
 
-  after_commit :index_data_in_solr, on: [:create, :update]
+  after_commit :index_data_in_solr, on: [:create, :update], unless: :skip_indexing?
   before_destroy :remove_data_from_solr
+
+  attr_accessor :skip_indexing
 
   def to_solr
     {
@@ -27,5 +29,9 @@ class Item < ApplicationRecord
   def remove_data_from_solr
     SolrService.delete_by_id(id)
     SolrService.commit
+  end
+
+  def skip_indexing?
+    skip_indexing
   end
 end
